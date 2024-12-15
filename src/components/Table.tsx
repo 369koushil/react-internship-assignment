@@ -152,7 +152,7 @@ export default function DynamicColumnsDemo() {
                 </div>
             ) : (
                 <DataTable
-                    value={products}
+                    value={products }
                     tableStyle={{ minWidth: '50rem' }}
                     className="min-w-full border border-gray-200 rounded-md"
                     selectionMode={rowClick ? null : 'multiple'}
@@ -161,14 +161,14 @@ export default function DynamicColumnsDemo() {
                     dataKey="id"
                 >
                     {!rowClick && (
-                        <Column headerClassName='bg-gray-200'
+                        <Column headerClassName='bg-gray-300'
                             selectionMode="multiple"
                             headerStyle={{ width: '3rem' }}
                         />
                     )}
 
                     {columns.map((col) => (
-                        <Column headerClassName='bg-gray-200'
+                        <Column headerClassName='bg-gray-300  text-black font-semibold text-lg '
                             key={col.field}
                             field={col.field}
                             header={col.field === 'title' ? (
@@ -182,7 +182,7 @@ export default function DynamicColumnsDemo() {
                             ) : (
                                 col.header
                             )}
-                            className="border-t border-gray-200"
+                            
                         />
                     ))}
                 </DataTable>
