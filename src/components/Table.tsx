@@ -6,6 +6,7 @@ import { DataTable } from 'primereact/datatable';
 import { OverlayPanel } from 'primereact/overlaypanel';
 import axios from 'axios';
 import PrimeReactOverlay from './PrimeReactOverlay';
+import { classNames } from 'primereact/utils';
 
 interface DataFetched {
     id: string;
@@ -104,10 +105,10 @@ export default function DynamicColumnsDemo() {
 
                 const fetchedProducts = res.data.data.map((item: any) => ({
                     id: item.id,
-                    title: item.title || '',
-                    place_of_origin: item.place_of_origin || '',
-                    artist_display: item.artist_display || '',
-                    inscriptions: item.inscriptions || '',
+                    title: item.title || 'No inscription available',
+                    place_of_origin: item.place_of_origin || 'No inscription available',
+                    artist_display: item.artist_display || 'No inscription available',
+                    inscriptions: item.inscriptions || 'No inscription available',
                     date_start: item.date_start || 0,
                     date_end: item.date_end || 0,
                 }));
@@ -192,7 +193,9 @@ export default function DynamicColumnsDemo() {
                     first={first}
                     rows={rows}
                     totalRecords={totalRecords}
-                    rowsPerPageOptions={[10, 20, 30]}
+                    rowsPerPageOptions={
+                        
+                        [10, 20, 30]}
                     onPageChange={onPageChange}
                 />
             </div>
