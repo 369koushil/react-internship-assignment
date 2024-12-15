@@ -28,7 +28,7 @@ export default function DynamicColumnsDemo() {
     const [first, setFirst] = useState<number>(0);
     const [rows, setRows] = useState<number>(10);
     const [loading, setLoading] = useState<boolean>(true);
-    const [selectedProducts, setSelectedProducts] = useState<DataFetched[] | null>(null);
+    const [selectedProducts, setSelectedProducts] = useState<DataFetched[]>([]);
     const [rowClick, setRowClick] = useState<boolean>(true);
     const op = useRef<OverlayPanel>(null);
     const [inputRows, setInputRows] = useState<number>(rows);
@@ -137,7 +137,7 @@ export default function DynamicColumnsDemo() {
                 </label>
 
                 <PrimeReactOverlay applyRows={applyRows} inputRows={inputRows} setInputRows={setInputRows} op={op} />
-                
+
             </div>
 
             {loading ? (
@@ -155,7 +155,7 @@ export default function DynamicColumnsDemo() {
                     tableStyle={{ minWidth: '50rem' }}
                     className="min-w-full border border-gray-200 rounded-md"
                     selectionMode={rowClick ? null : 'multiple'}
-                    selection={selectedProducts}
+                    selection={selectedProducts || []}
                     onSelectionChange={(e: any) => setSelectedProducts(e.value)}
                     dataKey="id"
                 >
@@ -194,7 +194,6 @@ export default function DynamicColumnsDemo() {
                     totalRecords={totalRecords}
                     rowsPerPageOptions={[10, 20, 30]}
                     onPageChange={onPageChange}
-                    className="justify-end"
                 />
             </div>
         </div>
