@@ -6,7 +6,6 @@ import { DataTable } from 'primereact/datatable';
 import { OverlayPanel } from 'primereact/overlaypanel';
 import axios from 'axios';
 import PrimeReactOverlay from './PrimeReactOverlay';
-import { classNames } from 'primereact/utils';
 
 interface DataFetched {
     id: string;
